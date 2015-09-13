@@ -1,0 +1,18 @@
+﻿<div class="col-md-9 col-lg-9" ng-init="showDiv=false">
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="personal">
+            <div class="inner-tab-pane">
+                <h2> Projects</h2>
+                <ul ng-repeat="p in projects">
+                    <li><a href="javascript:void(0)"><i class="glyphicon glyphicon-unchecked"></i></a> {{p.Name}}</li>
+                    <li><a ng-class="btn btn-primary" href="/#/projectdetail/{{p.Id}}">Edit</a>|
+                        <a ng-class="btn btn-primary" href="javascript:void(0)" ng-click="remove(p)">Remove</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

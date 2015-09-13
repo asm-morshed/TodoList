@@ -1,0 +1,65 @@
+﻿<div class="col-md-3 col-lg-3 nav-tabs-background">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+          </ul>
+    <!-- Nav tabs for Project-->
+    <p>Projects</p>
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" ng-repeat="p in projects" ng-click="loadTasks(p)" ng-class="{'active' : p.Id===selectedProject.Id}"><a href="javascript:void(0)" aria-controls="settings"><i class="fa fa-circle-thin"></i>{{p.Name}}<span class="count">({{p.Count}})</span></a></li>
+    </ul>
+    <a href="/#/createproject" class="btn btn-default" type="button"><i class="fa fa-plus"></i>Add Project</a>
+</div>
+<div class="col-md-9 col-lg-9" ng-init="showDiv=false">
+    <section class="search-task-section">
+        <div style="display:none">
+            
+        </div>
+        <!-- Search Option -->
+        <div class="input-group stylish-input-group">
+            <span class="input-group-addon">
+                <a type="submit" href="search.html">
+                    <span class="glyphicon glyphicon-search"></span>
+                </a>
+            </span>
+            <input type="text" class="form-control" ng-model="filterText" placeholder="Filter Tasks">
+        </div>
+    </section>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="today"></div>
+        <div role="tabpanel" class="tab-pane" id="next7days"></div>
+    </div>
+    <!-- Tab panes For Project-->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="personal">
+            <div class="inner-tab-pane">
+                <div class="row">
+                    <div class="col-md-11">
+                        <h2>{{selectedProject.Name}}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11">
+                        <select ng-model="sortOn" ng-change="loadTasks(selectedProject)">
+                            <option value="date">Date</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <select ng-model="sortBy" ng-change="loadTasks(selectedProject)">
+                            <option value=" asc">
+                            Ascending</option>
+                            <option value="desc">Descending</option>
+                        </select>
+                    </div>
+                </div>
+                <ul ng-repeat="t in tasks | filter : filterText">
+                    <li ng-class="{'completed' : t.IsCompleted}"><a href="javascript:void(0)" ng-click="complete(t)"><i class="glyphicon glyphicon-unchecked"></i></a> {{t.Name}}</li>
+                    <li>{{t.DueDate | date}}</li>
+                </ul>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+</div>

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="todolist">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo List</title>
+
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+    <link href="styles/style.css" rel="stylesheet" />
+    <link href="styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper">
+        <div class="container">
+            <div class="row" style="border-bottom: 1px black solid;">
+                <div class="col-md-6 col-lg-6">
+                    <h1><a href="/#/">My Todo List</a></h1>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <h4><a href="/#/createtask">Create Task</a> | <a href="/#/createproject">Create Project</a></h4>
+                    <h4><a href="/#/tasks">Tasks</a> | <a href="/#/projects">Projects</a></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-view></div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular-route.min.js"></script>
+    <script src="libs/angular/angular-resource.min.js"></script>
+    <script src="libs/angular/angular-animate.min.js"></script>
+    <script src="libs/bootstrap/bootstrap.min.js"></script>
+
+    <script src="scripts/todolist.js"></script>
+
+    <!--controllers-->
+
+<script src="scripts/dashboard/dashboard.controller.js"></script>
+    <script src="scripts/project/projectdetail.controller.js"></script>
+    <script src="scripts/project/projects.controller.js"></script>
+    <script src="scripts/task/taskdetail.controller.js"></script>
+    <script src="scripts/project/projectController.js"></script>
+    <script src="scripts/task/tasks.controller.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+    <script src="scripts/task/taskController.js"></script>
+
+    <!--services-->
+<script src="scripts/dashboard/dashboard.service.js"></script>
+    <script src="scripts/task/task.service.js"></script>
+    <script src="scripts/project/project.service.js"></script>
+
+
+</body>
+</html>
